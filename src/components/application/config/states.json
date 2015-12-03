@@ -1,0 +1,14 @@
+[
+  {
+    "name": "app",
+    "url": "/",
+    "type": "load",
+    "src": "components/application/index"
+  },
+  {
+    "name": "app.index",
+    "url": "index",
+    "type": "load",
+    "src": "components/index-state/index"
+  }
+]

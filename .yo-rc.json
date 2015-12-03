@@ -1,0 +1,10 @@
+{
+  "generator-angular-lazy": {
+    "appName": "Lazy Angular Workshop",
+    "i18n": true,
+    "locales": [
+      "en"
+    ],
+    "defaultLocale": "en"
+  }
+}
