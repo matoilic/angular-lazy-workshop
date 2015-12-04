@@ -10,13 +10,13 @@
             <ui-view name="page"></ui-view>
         </div>
 
-        <script src="/jspm_packages/system.src.js"></script>
+        <script src="jspm_packages/system.src.js"></script>
         <script>
             System.config({
                 baseURL: '/'
             });
         </script>
-        <script src="/config/system.js"></script>
+        <script src="config/system.js"></script>
         <script>
             System['import']('index')['catch'](console.error.bind(console));
         </script>

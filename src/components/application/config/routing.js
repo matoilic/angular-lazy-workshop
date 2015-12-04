@@ -6,12 +6,9 @@ function routingConfig($locationProvider, $urlRouterProvider, $httpProvider, $fu
     });
 
     $httpProvider.useApplyAsync(true);
-    $locationProvider.html5Mode({
-        enabled: true,
-        requireBase: false
-    });
-    $urlRouterProvider.otherwise('/app/index');
-    $urlRouterProvider.when('/', '/app/index');
+    $locationProvider.html5Mode(false);
+    $urlRouterProvider.otherwise('/index');
+    $urlRouterProvider.when('/', '/index');
 }
 
 export default [

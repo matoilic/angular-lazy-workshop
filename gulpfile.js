@@ -37,23 +37,6 @@ const paths = {
 const serverPort = 8088;
 const serverPortTest = 8089;
 
-const serveIndex = function(req, res, next) {
-    if(req.url === '/' || req.url.indexOf('/app') === 0) {
-        res.appendHeader('Content-type', 'text/html');
-        res.write(fs.readFileSync('index.html'));
-        res.end();
-    } else {
-        next();
-    }
-};
-
-const serverMiddleware = function(connect) {
-    return [
-        connect().use('/', serveIndex),
-        connect().use('/app/.*', serveIndex)
-    ];
-};
-
 gulp.task('compile-source', function() {
     return gulp
         .src(paths.sources)
@@ -160,8 +143,7 @@ gulp.task('test-e2e', ['build', 'webdriver-update'], function(done) {
 
     g.connect.server({
         port: serverPortTest,
-        root: ['.'],
-        middleware: serverMiddleware
+        root: ['.']
     });
 
     args.push(
@@ -213,6 +195,7 @@ gulp.task('eslint', function() {
 gulp.task('notify-recompiled', function() {
     return gulp
         .src(paths.scripts)
+        .pipe(g.connect.reload())
         .pipe(g.notify('recompiled changed files'));
 });
 
@@ -227,7 +210,8 @@ gulp.task('serve', ['build'], function() {
     g.connect.server({
         port: serverPort,
         root: ['.'],
-        middleware: serverMiddleware
+        livereload: true,
+        fallback: ['index.html']
     });
 });
 
