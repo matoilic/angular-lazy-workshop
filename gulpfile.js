@@ -4,6 +4,7 @@ const gulpSync = require('gulp-sync')(gulp);
 const KarmaServer = require('karma').Server;
 const path = require('path');
 const Bundler = require('angular-lazy-bundler');
+const fs = require('fs');
 
 const paths = {
     build: {
@@ -35,6 +36,23 @@ const paths = {
 
 const serverPort = 8088;
 const serverPortTest = 8089;
+
+const serveIndex = function(req, res, next) {
+    if(req.url === '/' || req.url.indexOf('/app') === 0) {
+        res.appendHeader('Content-type', 'text/html');
+        res.write(fs.readFileSync('index.html'));
+        res.end();
+    } else {
+        next();
+    }
+};
+
+const serverMiddleware = function(connect) {
+    return [
+        connect().use('/', serveIndex),
+        connect().use('/app/.*', serveIndex)
+    ];
+};
 
 gulp.task('compile-source', function() {
     return gulp
@@ -142,7 +160,8 @@ gulp.task('test-e2e', ['build', 'webdriver-update'], function(done) {
 
     g.connect.server({
         port: serverPortTest,
-        root: ['.']
+        root: ['.'],
+        middleware: serverMiddleware
     });
 
     args.push(
@@ -207,7 +226,8 @@ gulp.task('watch', function() {
 gulp.task('serve', ['build'], function() {
     g.connect.server({
         port: serverPort,
-        root: ['.']
+        root: ['.'],
+        middleware: serverMiddleware
     });
 });
 

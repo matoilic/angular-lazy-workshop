@@ -3,7 +3,7 @@ import template from './application.html!text';
 function applicationRouteConfig($stateProvider) {
     $stateProvider
         .state('app', {
-            url: '/',
+            url: '/app/',
             abstract: true,
             views: {
                 page: {
