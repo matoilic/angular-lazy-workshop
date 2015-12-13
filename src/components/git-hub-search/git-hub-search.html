@@ -5,9 +5,13 @@
 
     <p ng-show="gitHubSearch.updating">{{ 'gitHubSearch.updating' | translate }}</p>
 
-    <ul>
-        <li ng-repeat="repo in gitHubSearch.repositories track by repo.id">
-            {{repo.name}}
-        </li>
-    </ul>
+    <table class="table table-striped git-hub-search-result-list">
+        <tbody>
+            <tr ng-repeat="repo in gitHubSearch.repositories track by repo.id">
+                <td><a ng-href="{{::repo.html_url}}" target="_blank">{{::repo.name}}</a></td>
+                <td>{{::repo.owner.login}}</td>
+                <td ng-click="gitHubSearch.showReadme(repo)">{{::repo.description}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

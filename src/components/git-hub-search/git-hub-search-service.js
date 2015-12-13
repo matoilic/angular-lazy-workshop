@@ -1,6 +1,6 @@
 class GitHubSearchService {
-    constructor($http) {
-        this._http = $http;
+    constructor(gitHubApi) {
+        this._api = gitHubApi;
     }
 
     find(term) {
@@ -8,19 +8,25 @@ class GitHubSearchService {
     }
 
     _searchRepositories(term) {
-        return this._http
-            .get('https://api.github.com/search/repositories?q=' + encodeURIComponent(term))
-            .then((response) => response.data.items);
+        term = term.trim().toLowerCase();
+
+        if(!this._terms[term]) {
+            this._terms[term] = this._api.searchRepositories(term);
+        }
+
+        return this._terms[term];
     }
 
     _fetchAllRepositories() {
-        return this._http
-            .get('https://api.github.com/repositories')
-            .then((response) => response.data);
+        if(!this._all) {
+            this._all = this._api.listRepositories();
+        }
+
+        return this._all;
     }
 }
 
 export default [
-    '$http',
+    'gitHubApi',
     GitHubSearchService
 ];

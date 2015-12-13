@@ -1,10 +1,11 @@
 class GitHubSearchController {
-    constructor(searchService) {
+    constructor(searchService, componentLoader) {
         this._searchService = searchService;
+        this._componentLoader = componentLoader;
         this._searchTerm = '';
         this.repositories = [];
 
-        this._updateResults();
+        this._updateResults().then(() => componentLoader.loadComponent('git-hub-readme'));
     }
 
     get searchTerm() {
@@ -16,10 +17,16 @@ class GitHubSearchController {
         this._updateResults();
     }
 
+    showReadme(repo) {
+        this._componentLoader
+            .resolve('git-hub-readme', 'gitHubReadmeService')
+            .then((readMeService) => readMeService.show(repo.owner.login, repo.name))
+    }
+
     _updateResults() {
         this.updating = true;
 
-        this._searchService
+        return this._searchService
             .find(this._searchTerm)
             .then((repos) => {
                 this.repositories = repos;
@@ -30,5 +37,6 @@ class GitHubSearchController {
 
 export default [
     'gitHubSearchService',
+    'componentLoader',
     GitHubSearchController
 ];
