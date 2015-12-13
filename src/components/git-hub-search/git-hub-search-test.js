@@ -1,5 +1,15 @@
 describe('Git Hub Search', () => {
-    it('should pass the dummy test to verify the protractor setup', () => {
-        expect(true).toBe(true);
+    const EC = protractor.ExpectedConditions;
+
+    beforeEach(() => {
+        browser.get(`${browser.baseUrl}/index`);
+    });
+
+    it('should contain a search field', () => {
+        browser.wait(EC.presenceOf($('input[type="search"]')), 5000);
+
+        const searchField = element(by.css('input[type="search"]'));
+
+        expect(searchField.isPresent()).toBeTruthy();
     });
 });
