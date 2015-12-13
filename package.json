@@ -8,7 +8,9 @@
     "configFile": "config/system.js",
     "dependencies": {
       "angular": "github:angular/bower-angular@^1.4.5",
+      "angular-animate": "github:angular/bower-angular-animate@^1.4.5",
       "angular-lazy": "github:matoilic/angular-lazy@^0.1.0",
+      "angular-sanitize": "github:angular/bower-angular-sanitize@^1.4.5",
       "angular-translate": "github:angular-translate/bower-angular-translate@^2.7.2",
       "angular-ui-bootstrap": "npm:angular-ui-bootstrap@^0.14.3",
       "angular-ui-router": "github:angular-ui/ui-router@^0.2.15",
