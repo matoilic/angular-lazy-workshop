@@ -29,6 +29,7 @@ module.exports = function(config) {
                 'build/**/*.css',
                 'build/**/*.json',
                 'build/**/*.html',
+                'build/**/*.map',
                 'jspm_packages/**/*.js',
                 'jspm_packages/**/*.css'
             ]

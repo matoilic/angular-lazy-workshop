@@ -17,8 +17,10 @@ System.config({
 
   map: {
     "angular": "github:angular/bower-angular@1.4.8",
+    "angular-animate": "github:angular/bower-angular-animate@1.4.8",
     "angular-lazy": "github:matoilic/angular-lazy@0.1.0",
     "angular-mocks": "github:angular/bower-angular-mocks@1.4.8",
+    "angular-sanitize": "github:angular/bower-angular-sanitize@1.4.8",
     "angular-translate": "github:angular-translate/bower-angular-translate@2.8.1",
     "angular-ui-bootstrap": "npm:angular-ui-bootstrap@0.14.3",
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
@@ -36,7 +38,13 @@ System.config({
     "github:angular-ui/ui-router@0.2.15": {
       "angular": "github:angular/bower-angular@1.4.8"
     },
+    "github:angular/bower-angular-animate@1.4.8": {
+      "angular": "github:angular/bower-angular@1.4.8"
+    },
     "github:angular/bower-angular-mocks@1.4.8": {
+      "angular": "github:angular/bower-angular@1.4.8"
+    },
+    "github:angular/bower-angular-sanitize@1.4.8": {
       "angular": "github:angular/bower-angular@1.4.8"
     },
     "github:christopherthielen/ui-router-extras@0.0.14": {
