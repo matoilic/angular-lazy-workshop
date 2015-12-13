@@ -1,6 +1,8 @@
 class GitHubSearchService {
     constructor(gitHubApi) {
         this._api = gitHubApi;
+        this._terms = {};
+        this._all = null;
     }
 
     find(term) {
