@@ -97,7 +97,7 @@ describe('Git Hub API', () => {
         const content = '# This is a title';
 
         $httpBackend
-            .expectPOST(`${apiUrl}/markdown?`, {text: content, mode: 'markdown'})
+            .expectPOST(`${apiUrl}/markdown?`, { text: content, mode: 'markdown' })
             .respond(renderedReadme);
 
         api

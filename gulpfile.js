@@ -37,7 +37,7 @@ const paths = {
 const serverPort = 8088;
 const serverPortTest = 8089;
 
-gulp.task('compile-source', function() {
+gulp.task('compile-source', function () {
     return gulp
         .src(paths.sources)
         .pipe(g.plumber())
@@ -52,7 +52,7 @@ gulp.task('compile-source', function() {
         .pipe(gulp.dest(paths.build.output));
 });
 
-gulp.task('compile-stylesheets', function() {
+gulp.task('compile-stylesheets', function () {
     return gulp
         .src(paths.stylesheets)
         .pipe(g.plumber())
@@ -69,7 +69,7 @@ gulp.task('compile-stylesheets', function() {
         .pipe(gulp.dest(paths.build.output));
 });
 
-gulp.task('copystatic', function() {
+gulp.task('copystatic', function () {
     return gulp
         .src(paths.static.concat(paths.html))
         .pipe(gulp.dest(paths.build.output));
@@ -81,7 +81,7 @@ gulp.task('build', [
     'compile-stylesheets'
 ]);
 
-gulp.task('bundle', ['build'], function(done) {
+gulp.task('bundle', ['build'], function (done) {
     const bundler = new Bundler({
         systemJsConfig: 'config/system.js'
     });
@@ -116,16 +116,16 @@ gulp.task('bundle', ['build'], function(done) {
         .catch(done);
 });
 
-gulp.task('test', ['build'], function(done) {
+gulp.task('test', ['build'], function (done) {
     new KarmaServer({
         configFile: __dirname + '/config/karma.js',
         singleRun: true
-    }, function() {
+    }, function () {
         done();
     }).start();
 });
 
-gulp.task('webdriver-update', function(done) {
+gulp.task('webdriver-update', function (done) {
     const browsers = ['chrome'];
 
     if (process.platform === 'win32') {
@@ -134,12 +134,12 @@ gulp.task('webdriver-update', function(done) {
         browsers.push('safari');
     }
 
-    g.protractor.webdriver_update({browsers: browsers}, done);
+    g.protractor.webdriver_update({ browsers: browsers }, done);
 });
 
 gulp.task('webdriver-standalone', g.protractor.webdriver_standalone);
 
-gulp.task('test-e2e', ['build', 'webdriver-update'], function(done) {
+gulp.task('test-e2e', ['build', 'webdriver-update'], function (done) {
     g.connect.server({
         port: serverPortTest,
         root: ['.'],
@@ -152,54 +152,47 @@ gulp.task('test-e2e', ['build', 'webdriver-update'], function(done) {
         .pipe(g.protractor.protractor({
             configFile: __dirname + '/config/protractor.js'
         }))
-        .on('error', function(err) {
+        .on('error', function (err) {
             g.connect.serverClose();
 
             throw err;
         })
-        .on('end', function() {
+        .on('end', function () {
             g.connect.serverClose();
 
             done();
         });
 });
 
-gulp.task('htmlhint', function() {
+gulp.task('htmlhint', function () {
     return gulp
         .src(paths.html)
         .pipe(g.htmlhint('.htmlhintrc'))
         .pipe(g.htmlhint.reporter());
 });
 
-gulp.task('eslint', function() {
+gulp.task('eslint', function () {
     return gulp
         .src(paths.scripts.concat(paths.configs))
-        .pipe(g.eslint({
-            extends: 'eslint-config-airbnb/base',
-            rules: {
-                indent: [2, 4],
-                'comma-dangle': [2, 'never'],
-                'func-names': 0
-            }
-        }))
+        .pipe(g.eslint())
         .pipe(g.eslint.format());
 });
 
-gulp.task('notify-recompiled', function() {
+gulp.task('notify-recompiled', function () {
     return gulp
         .src(paths.scripts)
         .pipe(g.connect.reload())
         .pipe(g.notify('recompiled changed files'));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(paths.stylesheets, gulpSync.sync(['compile-stylesheets', 'notify-recompiled']));
     gulp.watch(paths.scripts, gulpSync.sync(['compile-source', 'eslint', 'notify-recompiled']));
     gulp.watch(paths.html, gulpSync.sync(['copystatic', 'htmlhint', 'notify-recompiled']));
     gulp.watch(paths.static, gulpSync.sync(['copystatic', 'notify-recompiled']));
 });
 
-gulp.task('serve', ['build'], function() {
+gulp.task('serve', ['build'], function () {
     g.connect.server({
         port: serverPort,
         root: ['.'],

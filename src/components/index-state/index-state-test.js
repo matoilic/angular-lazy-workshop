@@ -1,4 +1,4 @@
-describe('Index State', function() {
+describe('Index State', () => {
     const EC = protractor.ExpectedConditions;
 
     beforeEach(() => {

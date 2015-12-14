@@ -35,16 +35,16 @@ class GitHubApi {
     }
 
     renderMarkdown(content) {
-        const httpOptions = Object.assign({responseType: 'text'}, this._httpOptions);
+        const httpOptions = Object.assign({ responseType: 'text' }, this._httpOptions);
 
         return this._http
-            .post(this._assembleApiUrl('markdown'), {text: content, mode: 'markdown'}, httpOptions)
+            .post(this._assembleApiUrl('markdown'), { text: content, mode: 'markdown' }, httpOptions)
             .then((response) => response.data);
     }
 
     searchRepositories(term) {
         return this._http
-            .get(this._assembleApiUrl('search/repositories', {q: term}), this._httpOptions)
+            .get(this._assembleApiUrl('search/repositories', { q: term }), this._httpOptions)
             .then((response) => response.data.items);
     }
 }

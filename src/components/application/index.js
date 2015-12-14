@@ -37,8 +37,6 @@ const app = angular
     .config(gitHubApiConfig)
     .run(errorHandlingConfig);
 
-Object.keys(constants).forEach(function(constantName) {
-    app.constant(constantName, constants[constantName]);
-});
+Object.keys(constants).forEach((constantName) => app.constant(constantName, constants[constantName]));
 
 export default app;
