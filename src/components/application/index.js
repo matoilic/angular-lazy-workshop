@@ -12,6 +12,7 @@ import defaultLocaleConfig from './config/default-locale';
 import routingConfig from './config/routing';
 import errorHandlingConfig from './config/error-handling';
 import constants from './config/constants.json!';
+import debugConfig from './config/debugging';
 import gitHubApiConfig from './config/git-hub-api';
 import ApplicationController from './application-controller';
 import applicationRoute from './application-route';
@@ -34,6 +35,7 @@ const app = angular
     .config(routingConfig)
     .config(applicationRoute)
     .config(defaultLocaleConfig)
+    .config(debugConfig)
     .config(gitHubApiConfig)
     .run(errorHandlingConfig);
 
