@@ -4,9 +4,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
         <title>Lazy Angular Workshop</title>
+        <link href="//fonts.googleapis.com/css?family=Roboto:300,700,400,100" rel="stylesheet">
+        <link href="build/components/application/stylesheets/application.css" rel="stylesheet">
     </head>
     <body>
         <div id="applicationContainer" ng-app="application-component" ng-strict-di="true">
+            <header class="application-header container-fluid">
+                <h1>Academy &ndash; Lazy Angular</h1>
+            </header>
+
             <ui-view name="page"></ui-view>
         </div>
 

@@ -1,0 +1,24 @@
+$brand-primary: #004d9f;
+
+$link-hover-color: #14adaa;
+
+$font-family-sans-serif: Roboto, sans-serif;
+$font-family-monospace: Monaco, Menlo, Consolas, "Courier New", monospace !default;
+$font-size-base: 16px;
+
+$headings-font-weight: 300;
+
+$table-bg-accent: #99b9db;
+$table-border-color: #fff;
+
+$border-radius-base: 0;
+$border-radius-small: 0;
+$border-radius-large: 0;
+
+$modal-md: 80vw;
+$modal-sm: 80vw;
+$modal-lg: 80vw;
+
+$header-height: 80px;
+
+@import "bootstrap/variables";

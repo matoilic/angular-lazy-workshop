@@ -228,7 +228,6 @@ System.config({
       "leven": "npm:leven@1.0.2"
     },
     "npm:babel-runtime@5.8.34": {
-      "core-js": "npm:core-js@1.2.6",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:babylon@5.8.34": {
@@ -534,7 +533,6 @@ System.config({
       "wrappy": "npm:wrappy@1.0.1"
     },
     "npm:inherits@2.0.1": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:is-buffer@1.1.0": {

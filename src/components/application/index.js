@@ -1,4 +1,3 @@
-import './stylesheets/application.css!';
 import 'babel/external-helpers';
 import angular from 'angular';
 import 'angular-ui-router';

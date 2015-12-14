@@ -3,14 +3,23 @@
         <input type="search" class="form-control" placeholder="{{ 'gitHubSearch.searchTermPlaceholder' | translate }}" ng-model="gitHubSearch.searchTerm" ng-model-options="{ debounce: { default: 500 } }">
     </form>
 
-    <p class="git-hub-search-load-indicator" ng-show="gitHubSearch.updating">{{ 'gitHubSearch.updating' | translate }}</p>
+    <div class="git-hub-search-load-indicator" ng-show="gitHubSearch.updating">
+        {{ 'gitHubSearch.updating' | translate }}
+    </div>
 
     <table class="table table-striped git-hub-search-result-list">
+        <thead>
+            <tr>
+                <th>{{ 'gitHubSearch.repoName' | translate }}</th>
+                <th>{{ 'gitHubSearch.repoOwner' | translate }}</th>
+                <th>{{ 'gitHubSearch.repoDescription' | translate }}</th>
+            </tr>
+        </thead>
         <tbody>
             <tr ng-repeat="repo in gitHubSearch.repositories track by repo.id">
                 <td><a ng-href="{{::repo.html_url}}" target="_blank">{{::repo.name}}</a></td>
                 <td>{{::repo.owner.login}}</td>
-                <td ng-click="gitHubSearch.showReadme(repo)">{{::repo.description}}</td>
+                <td ng-click="gitHubSearch.showReadme(repo)" class="git-hub-search-result-description">{{::repo.description}}</td>
             </tr>
         </tbody>
     </table>

@@ -1,10 +1,22 @@
-/**
-TODO: By default the whole bootstrap framework is imported. But you also have the possibility to only import the grid
-"bootstrap/grid" and it's dependencies if you only want to use this for example.
-*/
-@import "bootstrap";
+@import "variables";
+@import "bootstrap/mixins";
+@import "bootstrap/normalize";
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/grid";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+@import "bootstrap/modals";
+@import "bootstrap/tables";
 
 body {
-  font-family: sans-serif;
-  padding: 20px;
+  font-family: Roboto, sans-serif;
+}
+
+.application-header {
+  background: #004d9f url("../images/ti8m-logo.svg") no-repeat left ($grid-gutter-width / 2) bottom ($font-size-h1 * 0.4) / auto $font-size-h1;
+  color: #fff;
+  font-weight: 300;
+  height: $header-height;
+  padding-left: 10em;
 }

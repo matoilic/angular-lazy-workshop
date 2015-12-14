@@ -6,3 +6,18 @@
   list-style: none;
   margin-top: 2em;
 }
+
+.git-hub-search-load-indicator {
+  font-style: italic;
+  margin: 1em 0;
+}
+
+.git-hub-search-result-description {
+  cursor: pointer;
+
+  &:before {
+    content: "・・・";
+    letter-spacing: -0.5em;
+    padding-right: 1em;
+  }
+}
