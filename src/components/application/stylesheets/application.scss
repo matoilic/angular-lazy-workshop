@@ -14,9 +14,9 @@ body {
 }
 
 .application-header {
-  background: #004d9f url("../images/ti8m-logo.svg") no-repeat left ($grid-gutter-width / 2) bottom ($font-size-h1 * 0.4) / auto $font-size-h1;
+  background: #004d9f url("../images/ti8m-logo.svg") no-repeat left ($grid-gutter-width / 2) bottom ($font-size-h1 * 0.46) / auto $font-size-h1;
   color: #fff;
   font-weight: 300;
   height: $header-height;
-  padding-left: 10em;
+  padding-left: 9em;
 }
