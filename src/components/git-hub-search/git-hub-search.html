@@ -3,7 +3,7 @@
         <input type="search" class="form-control" placeholder="{{ 'gitHubSearch.searchTermPlaceholder' | translate }}" ng-model="gitHubSearch.searchTerm" ng-model-options="{ debounce: { default: 500 } }">
     </form>
 
-    <p ng-show="gitHubSearch.updating">{{ 'gitHubSearch.updating' | translate }}</p>
+    <p class="git-hub-search-load-indicator" ng-show="gitHubSearch.updating">{{ 'gitHubSearch.updating' | translate }}</p>
 
     <table class="table table-striped git-hub-search-result-list">
         <tbody>

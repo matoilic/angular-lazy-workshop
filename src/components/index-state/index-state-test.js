@@ -6,10 +6,10 @@ describe('Index State', function() {
     });
 
     it('should should render properly', () => {
-        browser.wait(EC.presenceOf($('input[type="search"]')), 5000);
+        const element = $('.index-state');
 
-        const stateElement = element(by.css('.index-state'));
+        browser.wait(EC.presenceOf(element));
 
-        expect(stateElement.isPresent()).toBeTruthy();
+        expect(element.isPresent()).toBeTruthy();
     });
 });

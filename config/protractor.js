@@ -1,7 +1,7 @@
-var protractorBase = __dirname + '/../node_modules/protractor/';
-var webdriverVersions = require(protractorBase + 'config.json').webdriverVersions;
+const protractorBase = __dirname + '/../node_modules/protractor/';
+const webdriverVersions = require(protractorBase + 'config.json').webdriverVersions;
 
-var capabilities = [
+const capabilities = [
     {
         browserName: 'chrome'
     },
@@ -29,8 +29,5 @@ module.exports.config = {
     rootElement: '#applicationContainer',
     framework: 'jasmine2',
     specs: ['../build/**/*-test.js'],
-    maxSessions: 1,
-    jasmineNodeOpts: {
-        defaultTimeoutInterval: 360000
-    }
+    maxSessions: 1
 };
