@@ -31,7 +31,8 @@ class GitHubApi {
     loadReadme(owner, repository) {
         return this._http
             .get(this._assembleApiUrl(`repos/${owner}/${repository}/readme`), this._httpOptions)
-            .then((response) => atob(response.data.content));
+            // safari fails to decode base64 if it contains any kind of spaces
+            .then((response) => atob(response.data.content.replace(/\n/g, '')));
     }
 
     renderMarkdown(content) {
