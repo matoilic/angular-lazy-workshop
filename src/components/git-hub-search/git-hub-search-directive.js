@@ -10,7 +10,7 @@ function gitHubSearchDirective() {
 
         },
         bindToController: true
-    }
+    };
 }
 
 export default[

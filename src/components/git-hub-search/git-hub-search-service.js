@@ -5,13 +5,13 @@ class GitHubSearchService {
     }
 
     find(term) {
-        term = term.trim().toLowerCase();
+        const normalizedTerm = term.trim().toLowerCase();
 
-        if(!this._terms[term]) {
-            this._terms[term] = term.length ? this._api.searchRepositories(term) : this._api.listRepositories();
+        if (!this._terms[normalizedTerm]) {
+            this._terms[normalizedTerm] = normalizedTerm.length ? this._api.searchRepositories(normalizedTerm) : this._api.listRepositories();
         }
 
-        return this._terms[term];
+        return this._terms[normalizedTerm];
     }
 }
 

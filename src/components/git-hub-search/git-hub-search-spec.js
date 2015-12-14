@@ -9,7 +9,7 @@ describe('Git Hub Search service', () => {
     beforeEach(() => {
         angular.mock.module(component.name);
 
-        angular.mock.inject((gitHubApi, gitHubSearchService, $q) => {
+        angular.mock.inject((gitHubApi, gitHubSearchService) => {
             apiService = gitHubApi;
             searchService = gitHubSearchService;
 

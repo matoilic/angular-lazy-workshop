@@ -11,7 +11,7 @@ function gitHubReadmeDirective() {
             repository: '='
         },
         bindToController: true
-    }
+    };
 }
 
 export default[

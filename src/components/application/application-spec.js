@@ -15,7 +15,7 @@ describe('Application Component', () => {
             apiProvider = gitHubApiProvider;
         });
 
-        angular.mock.inject((gitHubApi) => { });
+        angular.mock.inject(() => { });
     });
 
     afterEach(() => {

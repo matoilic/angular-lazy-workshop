@@ -1,4 +1,4 @@
-import './git-hub-readme.css!'
+import './git-hub-readme.css!';
 import angular from 'angular';
 import 'angular-translate';
 import 'angular-sanitize';

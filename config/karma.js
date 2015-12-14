@@ -1,8 +1,8 @@
-var browsers = ['Chrome', 'Firefox'];
+const browsers = ['Chrome', 'Firefox'];
 
-if(process.platform === 'win32') {
+if (process.platform === 'win32') {
     browsers.push('IE');
-} else if(process.platform === 'darwin') {
+} else if (process.platform === 'darwin') {
     browsers.push('Safari');
 }
 

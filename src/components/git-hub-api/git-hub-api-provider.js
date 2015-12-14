@@ -3,7 +3,7 @@ class GitHubApi {
         this._apiUrl = apiUrl;
         this._http = $http;
 
-        if(username && token) {
+        if (username && token) {
             this._httpOptions = {
                 headers: {
                     Authorization: `Basic ${btoa(`${username}:${token}`)}`
@@ -15,11 +15,11 @@ class GitHubApi {
     }
 
     _assembleApiUrl(service, params = {}) {
-        params = Object.keys(params)
+        const urlParams = Object.keys(params)
             .map((k) => `${k}=${encodeURIComponent(params[k])}`)
             .join('&');
 
-        return `${this._apiUrl}/${service}?${params}`;
+        return `${this._apiUrl}/${service}?${urlParams}`;
     }
 
     listRepositories() {
@@ -31,7 +31,7 @@ class GitHubApi {
     loadReadme(owner, repository) {
         return this._http
             .get(this._assembleApiUrl(`repos/${owner}/${repository}/readme`), this._httpOptions)
-            .then((response) => atob(response.data.content))
+            .then((response) => atob(response.data.content));
     }
 
     renderMarkdown(content) {
@@ -39,7 +39,7 @@ class GitHubApi {
 
         return this._http
             .post(this._assembleApiUrl('markdown'), {text: content, mode: 'markdown'}, httpOptions)
-            .then((response) => response.data)
+            .then((response) => response.data);
     }
 
     searchRepositories(term) {

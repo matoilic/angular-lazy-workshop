@@ -20,7 +20,7 @@ class GitHubSearchController {
     showReadme(repo) {
         this._componentLoader
             .resolve('git-hub-readme', 'gitHubReadmeService')
-            .then((readMeService) => readMeService.show(repo.owner.login, repo.name))
+            .then((readMeService) => readMeService.show(repo.owner.login, repo.name));
     }
 
     _updateResults() {

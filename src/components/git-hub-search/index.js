@@ -1,4 +1,4 @@
-import './git-hub-search.css!'
+import './git-hub-search.css!';
 import angular from 'angular';
 import 'angular-translate';
 import ngLazy from 'angular-lazy';

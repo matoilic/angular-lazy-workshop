@@ -4,14 +4,14 @@ const gulpSync = require('gulp-sync')(gulp);
 const KarmaServer = require('karma').Server;
 const path = require('path');
 const Bundler = require('angular-lazy-bundler');
-const fs = require('fs');
 
 const paths = {
     build: {
         output: 'build'
     },
-    sources: 'src/**/*.js',
-    stylesheets: 'src/**/*.scss',
+    sources: ['src/**/*.js'],
+    configs: ['config/**/!(system).js', 'gulpfile.js'],
+    stylesheets: ['src/**/*.scss'],
     scripts: [
         'src/**/*.js',
         'gulpfile.js'
@@ -128,8 +128,10 @@ gulp.task('test', ['build'], function(done) {
 gulp.task('webdriver-update', function(done) {
     const browsers = ['chrome'];
 
-    if(process.platform === 'win32') {
+    if (process.platform === 'win32') {
         browsers.push('ie');
+    } else if (process.platform === 'darwin') {
+        browsers.push('safari');
     }
 
     g.protractor.webdriver_update({browsers: browsers}, done);
@@ -170,10 +172,8 @@ gulp.task('htmlhint', function() {
 });
 
 gulp.task('eslint', function() {
-    // TODO keywords followed by ( should not require a space
-
     return gulp
-        .src(paths.scripts)
+        .src(paths.scripts.concat(paths.configs))
         .pipe(g.eslint({
             extends: 'eslint-config-airbnb/base',
             rules: {
