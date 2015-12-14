@@ -87,32 +87,32 @@ gulp.task('bundle', ['build'], function(done) {
     });
 
     bundler
-        .bundleComponents()
-        .then(function() {
-            // these are the main dependencies required at application startup
-            return bundler.bundleDependencies(
-                [
-                    'angular',
-                    'angular-ui-router',
-                    'ui-router-extras',
-                    'oclazyload',
-                    'angular-translate',
-                    'css',
-                    'json',
-                    'text'
-                ],
-                'main-vendors'
-            );
-        })
-        .then(function() {
-            return bundler.bundlePackageDependencies();
-        })
-        .then(function() {
-            return bundler.saveConfig();
-        })
-        .then(function() {
-            done();
-        })
+        .bundle({
+            components: [
+                'application',
+                'git-hub-api',
+                'git-hub-search',
+                'index-state'
+            ],
+            packages: [
+                'angular',
+                'angular-animate',
+                'angular-lazy',
+                'angular-sanitize',
+                'angular-ui-router',
+                'angular-ui-bootstrap',
+                'angular-translate',
+                'ui-router-extras',
+                'oclazyload',
+                'css',
+                'json',
+                'text'
+            ]
+        }, 'main')
+        .then(() => bundler.bundleRemainingComponents())
+        .then(() => bundler.bundleRemainingPackages())
+        .then(() => bundler.saveConfig())
+        .then(() => done())
         .catch(done);
 });
 

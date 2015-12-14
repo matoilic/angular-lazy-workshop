@@ -13,7 +13,7 @@ System.config({
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
-  buildCSS: false,
+  buildCSS: true,
 
   map: {
     "angular": "github:angular/bower-angular@1.4.8",
@@ -26,6 +26,7 @@ System.config({
     "angular-ui-router": "github:angular-ui/ui-router@0.2.15",
     "babel": "npm:babel-core@5.8.34",
     "babel-runtime": "npm:babel-runtime@5.8.34",
+    "clean-css": "npm:clean-css@3.4.8",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.20",
     "json": "github:systemjs/plugin-json@0.1.0",
@@ -72,6 +73,9 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "url": "github:jspm/nodelibs-url@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "github:jspm/nodelibs-https@0.1.0": {
+      "https-browserify": "npm:https-browserify@0.0.0"
     },
     "github:jspm/nodelibs-net@0.1.2": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -319,12 +323,25 @@ System.config({
       "stream": "github:jspm/nodelibs-stream@0.1.0",
       "string_decoder": "github:jspm/nodelibs-string_decoder@0.1.0"
     },
+    "npm:clean-css@3.4.8": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "commander": "npm:commander@2.8.1",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "http": "github:jspm/nodelibs-http@1.7.1",
+      "https": "github:jspm/nodelibs-https@0.1.0",
+      "os": "github:jspm/nodelibs-os@0.1.0",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "source-map": "npm:source-map@0.4.4",
+      "url": "github:jspm/nodelibs-url@0.1.0",
+      "util": "github:jspm/nodelibs-util@0.1.0"
+    },
     "npm:cliui@2.1.0": {
       "center-align": "npm:center-align@0.1.2",
       "right-align": "npm:right-align@0.1.3",
       "wordwrap": "npm:wordwrap@0.0.2"
     },
-    "npm:commander@2.9.0": {
+    "npm:commander@2.8.1": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -336,7 +353,7 @@ System.config({
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "commander": "npm:commander@2.9.0",
+      "commander": "npm:commander@2.8.1",
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "detective": "npm:detective@4.3.1",
       "events": "github:jspm/nodelibs-events@0.1.1",
@@ -520,6 +537,9 @@ System.config({
       "os-tmpdir": "npm:os-tmpdir@1.0.1",
       "user-home": "npm:user-home@1.1.1"
     },
+    "npm:https-browserify@0.0.0": {
+      "http": "github:jspm/nodelibs-http@1.7.1"
+    },
     "npm:iconv-lite@0.4.13": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -670,7 +690,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },
     "npm:recast@0.10.33": {
@@ -749,6 +769,10 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:source-map@0.4.4": {
+      "amdefine": "npm:amdefine@1.0.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:source-map@0.5.3": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
@@ -815,5 +839,81 @@ System.config({
       "window-size": "npm:window-size@0.1.4",
       "y18n": "npm:y18n@3.2.0"
     }
+  },
+
+  bundles: {
+    "bundles/main": [
+      "components/application/index",
+      "components/application/i18n/translations",
+      "components/application/config/default-locale",
+      "components/application/config/routing",
+      "components/application/config/error-handling",
+      "components/application/config/git-hub-api",
+      "components/application/application-controller",
+      "components/application/application-route",
+      "components/application/i18n/en",
+      "components/application/config/constants.json!github:systemjs/plugin-json@0.1.0",
+      "components/application/config/states.json!github:systemjs/plugin-json@0.1.0",
+      "components/application/application.html!github:systemjs/plugin-text@0.0.2",
+      "components/git-hub-api/index",
+      "components/git-hub-api/git-hub-api-provider",
+      "components/git-hub-api/constants.json!github:systemjs/plugin-json@0.1.0",
+      "components/git-hub-search/index",
+      "components/git-hub-search/i18n/translations",
+      "components/git-hub-search/git-hub-search-controller",
+      "components/git-hub-search/git-hub-search-service",
+      "components/git-hub-search/git-hub-search-directive",
+      "components/git-hub-search/git-hub-search.css!github:systemjs/plugin-css@0.1.20",
+      "components/git-hub-search/i18n/en",
+      "components/git-hub-search/git-hub-search.html!github:systemjs/plugin-text@0.0.2",
+      "components/index-state/index",
+      "components/index-state/i18n/translations",
+      "components/index-state/index-state-controller",
+      "components/index-state/index-route",
+      "components/index-state/index-state.css!github:systemjs/plugin-css@0.1.20",
+      "components/index-state/i18n/en",
+      "components/index-state/index-state.html!github:systemjs/plugin-text@0.0.2",
+      "github:systemjs/plugin-text@0.0.2",
+      "github:systemjs/plugin-text@0.0.2/text",
+      "github:systemjs/plugin-json@0.1.0",
+      "github:systemjs/plugin-json@0.1.0/json",
+      "github:systemjs/plugin-css@0.1.20",
+      "github:systemjs/plugin-css@0.1.20/css",
+      "github:ocombe/oclazyload@1.0.9",
+      "github:ocombe/oclazyload@1.0.9/dist/ocLazyLoad",
+      "github:christopherthielen/ui-router-extras@0.0.14",
+      "github:christopherthielen/ui-router-extras@0.0.14/release/ct-ui-router-extras",
+      "github:angular/bower-angular@1.4.8",
+      "github:angular/bower-angular@1.4.8/angular",
+      "github:angular-translate/bower-angular-translate@2.8.1",
+      "github:angular-translate/bower-angular-translate@2.8.1/angular-translate",
+      "npm:angular-ui-bootstrap@0.14.3",
+      "npm:angular-ui-bootstrap@0.14.3/index",
+      "npm:angular-ui-bootstrap@0.14.3/ui-bootstrap-tpls",
+      "github:angular-ui/ui-router@0.2.15",
+      "github:angular-ui/ui-router@0.2.15/angular-ui-router",
+      "github:angular/bower-angular-sanitize@1.4.8",
+      "github:angular/bower-angular-sanitize@1.4.8/angular-sanitize",
+      "github:matoilic/angular-lazy@0.1.0",
+      "github:matoilic/angular-lazy@0.1.0/angular-lazy",
+      "github:matoilic/angular-lazy@0.1.0/component-loader-service",
+      "github:matoilic/angular-lazy@0.1.0/system-service",
+      "github:matoilic/angular-lazy@0.1.0/routing-configuration",
+      "github:angular/bower-angular-animate@1.4.8",
+      "github:angular/bower-angular-animate@1.4.8/angular-animate"
+    ],
+    "bundles/index": [
+      "index"
+    ],
+    "bundles/components/git-hub-readme": [
+      "components/git-hub-readme/index",
+      "components/git-hub-readme/git-hub-readme.css!github:systemjs/plugin-css@0.1.20",
+      "components/git-hub-readme/i18n/translations",
+      "components/git-hub-readme/git-hub-readme-controller",
+      "components/git-hub-readme/git-hub-readme-directive",
+      "components/git-hub-readme/git-hub-readme-service",
+      "components/git-hub-readme/i18n/en",
+      "components/git-hub-readme/git-hub-readme.html!github:systemjs/plugin-text@0.0.2"
+    ]
   }
 });
