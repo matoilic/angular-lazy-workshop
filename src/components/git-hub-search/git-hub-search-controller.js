@@ -1,11 +1,34 @@
 class GitHubSearchController {
-    constructor(searchService, componentLoader) {
+    constructor(searchService, componentLoader, $timeout) {
         this._searchService = searchService;
         this._componentLoader = componentLoader;
+        this._timeout = $timeout;
         this._searchTerm = '';
         this.repositories = [];
+        this._preloadDebounce = null;
 
         this._updateResults().then(() => componentLoader.loadComponent('git-hub-readme'));
+    }
+
+    _cancelPreload() {
+        if (this._preloadDebounce && this._preloadDebounce.cancel) {
+            this._preloadDebounce.cancel();
+            this._preloadDebounce = null;
+        }
+    }
+
+    onMouseEnterDescription(repo) {
+        this._cancelPreload();
+
+        this._preloadDebounce = this._timeout(() => {
+            this._componentLoader
+                .resolve('git-hub-readme', 'gitHubReadmeService')
+                .then((readMeService) => readMeService.render(repo.owner.login, repo.name));
+        }, 500);
+    }
+
+    onMouseLeaveDescription() {
+        this._cancelPreload();
     }
 
     get searchTerm() {
@@ -38,5 +61,6 @@ class GitHubSearchController {
 export default [
     'gitHubSearchService',
     'componentLoader',
+    '$timeout',
     GitHubSearchController
 ];

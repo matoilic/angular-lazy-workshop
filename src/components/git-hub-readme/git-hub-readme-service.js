@@ -3,12 +3,19 @@ class GitHubReadmeService {
         this._modal = $uibModal;
         this._rootScope = $rootScope;
         this._api = gitHubApi;
+        this._cache = {};
     }
 
     render(owner, repository) {
-        return this._api
-            .loadReadme(owner, repository)
-            .then((content) => this._api.renderMarkdown(content));
+        const key = `${owner}:${repository}`;
+
+        if (!this._cache[key]) {
+            this._cache[key] = this._api
+                .loadReadme(owner, repository)
+                .then((content) => this._api.renderMarkdown(content));
+        }
+
+        return this._cache[key];
     }
 
     show(owner, repository) {

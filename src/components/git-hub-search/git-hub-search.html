@@ -19,7 +19,7 @@
             <tr ng-repeat="repo in gitHubSearch.repositories track by repo.id">
                 <td><a ng-href="{{::repo.html_url}}" target="_blank">{{::repo.name}}</a></td>
                 <td>{{::repo.owner.login}}</td>
-                <td ng-click="gitHubSearch.showReadme(repo)" class="git-hub-search-result-description">{{::repo.description}}</td>
+                <td ng-click="gitHubSearch.showReadme(repo)" ng-mouseenter="gitHubSearch.onMouseEnterDescription(repo)" ng-mouseleave="gitHubSearch.onMouseLeaveDescription()" class="git-hub-search-result-description" >{{::repo.description}}</td>
             </tr>
         </tbody>
     </table>
