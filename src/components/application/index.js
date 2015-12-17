@@ -14,6 +14,7 @@ import errorHandlingConfig from './config/error-handling';
 import constants from './config/constants.json!';
 import debugConfig from './config/debugging';
 import gitHubApiConfig from './config/git-hub-api';
+import animationConfig from './config/animations';
 import ApplicationController from './application-controller';
 import applicationRoute from './application-route';
 
@@ -37,7 +38,8 @@ const app = angular
     .config(defaultLocaleConfig)
     .config(debugConfig)
     .config(gitHubApiConfig)
-    .run(errorHandlingConfig);
+    .run(errorHandlingConfig)
+    .run(animationConfig);
 
 Object.keys(constants).forEach((constantName) => app.constant(constantName, constants[constantName]));
 

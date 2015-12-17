@@ -25,7 +25,7 @@ if (process.platform === 'win32') {
 module.exports.config = {
     multiCapabilities: capabilities,
     seleniumServerJar: protractorBase + 'selenium/selenium-server-standalone-' + webdriverVersions.selenium + '.jar',
-    baseUrl: 'http://localhost:8089/index.html#',
+    baseUrl: 'http://localhost:8089/index.html?noAnimate=1#',
     rootElement: '#applicationContainer',
     framework: 'jasmine2',
     specs: ['../build/**/*-test.js'],
