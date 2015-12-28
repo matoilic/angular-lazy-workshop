@@ -63,8 +63,12 @@
     "when": "^3.7.2"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "gulp": ">=3.8.0",
+    "jspm": ">=0.16.19"
+  },
   "scripts": {
-    "setup": "npm install -g gulp karma-cli protractor jspm && npm install && jspm install",
+    "setup": "npm install -g gulp jspm && npm install && jspm install",
     "test": "gulp test",
     "test-e2e": "gulp test-e2e"
   },
