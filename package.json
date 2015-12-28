@@ -69,6 +69,7 @@
   },
   "scripts": {
     "setup": "npm install -g gulp jspm && npm install && jspm install",
+    "start": "gulp serve",
     "test": "gulp test",
     "test-e2e": "gulp test-e2e"
   },
