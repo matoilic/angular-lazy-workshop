@@ -3,21 +3,30 @@
 }
 
 .git-hub-search-result-list {
-  list-style: none;
-  margin-top: 2em;
+  margin-top: 4rem;
 }
 
-.git-hub-search-load-indicator {
-  font-style: italic;
-  margin: 1em 0;
+.git-hub-search-result {
+  border-bottom: 1px solid #b2b2b2;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
-.git-hub-search-result-description {
-  cursor: pointer;
+.git-hub-search-result-owner {
+  flex: 0 0 120px;
+  overflow: hidden;
+  padding-right: 20px;
+  text-align: center;
+  text-overflow: ellipsis;
 
-  &:before {
-    content: "・・・";
-    letter-spacing: -0.5em;
-    padding-right: 1em;
+  img {
+    border-radius: 50%;
+    width: 80px;
   }
+}
+
+.git-hub-search-result-repo {
+  flex-grow: 1;
 }

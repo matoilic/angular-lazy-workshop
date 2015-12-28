@@ -7,20 +7,26 @@
         {{ 'gitHubSearch.updating' | translate }}
     </div>
 
-    <table class="table table-striped git-hub-search-result-list">
-        <thead>
-            <tr>
-                <th>{{ 'gitHubSearch.repoName' | translate }}</th>
-                <th>{{ 'gitHubSearch.repoOwner' | translate }}</th>
-                <th>{{ 'gitHubSearch.repoDescription' | translate }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="repo in gitHubSearch.repositories track by repo.id">
-                <td><a ng-href="{{::repo.html_url}}" target="_blank">{{::repo.name}}</a></td>
-                <td>{{::repo.owner.login}}</td>
-                <td ng-click="gitHubSearch.showReadme(repo)" ng-mouseenter="gitHubSearch.onMouseEnterDescription(repo)" ng-mouseleave="gitHubSearch.onMouseLeaveDescription()" class="git-hub-search-result-description" >{{::repo.description}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <ul class="list-unstyled git-hub-search-result-list">
+        <li class="git-hub-search-result" ng-repeat="repo in gitHubSearch.repositories track by repo.id">
+            <div class="git-hub-search-result-owner">
+                <img ng-src="{{::repo.owner.avatar_url}}">
+                {{::repo.owner.login}}
+            </div>
+            <div class="git-hub-search-result-repo" ng-mouseenter="gitHubSearch.onMouseEnterDescription(repo)" ng-mouseleave="gitHubSearch.onMouseLeaveDescription()">
+                <p>
+                    <a ng-href="{{::repo.html_url}}" target="_blank">{{::repo.name}}</a>
+                </p>
+
+                <p class="git-hub-search-result-description">
+                    {{::repo.description}}
+                </p>
+
+                <p>
+                    <a href="#" ng-click="gitHubSearch.showReadme(repo)">README</a>
+                    <a href="#" ui-sref="app.repository({ owner: repo.owner.login, repo: repo.name })">Repo</a>
+                </p>
+            </div>
+        </li>
+    </ul>
 </div>

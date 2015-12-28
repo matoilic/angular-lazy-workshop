@@ -1,0 +1,13 @@
+<div class="git-hub-file-browser">
+    <ul class="list-unstyled git-hub-file-browser-breadcrumbs">
+        <li ng-repeat="b in gitHubFileBrowser.breadcrumbs track by b.path" ng-click="gitHubFileBrowser.open(b)">
+            {{::b.name}}
+        </li>
+    </ul>
+
+    <ul class="list-unstyled git-hub-file-browser-resource-list">
+        <li class="git-hub-file-browser-resource" ng-repeat="r in gitHubFileBrowser.contents track by r.path" ng-click="gitHubFileBrowser.open(r)" ng-class="gitHubFileBrowser.classFor(r)">
+            {{::r.name}}
+        </li>
+    </ul>
+</div>

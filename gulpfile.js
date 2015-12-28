@@ -100,8 +100,8 @@ gulp.task('bundle', ['build'], function (done) {
                 'angular-lazy',
                 'angular-sanitize',
                 'angular-ui-router',
-                'angular-ui-bootstrap',
                 'angular-translate',
+                'babel/external-helpers',
                 'ui-router-extras',
                 'oclazyload',
                 'css',
@@ -109,6 +109,14 @@ gulp.task('bundle', ['build'], function (done) {
                 'text'
             ]
         }, 'main')
+        .then(() => bundler.bundle({
+            components: [
+                'git-hub-readme'
+            ],
+            packages: [
+                'angular-ui-bootstrap'
+            ]
+        }, 'readme'))
         .then(() => bundler.bundleRemainingComponents())
         .then(() => bundler.bundleRemainingPackages())
         .then(() => bundler.saveConfig())

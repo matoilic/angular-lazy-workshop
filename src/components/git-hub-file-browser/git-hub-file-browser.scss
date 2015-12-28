@@ -1,0 +1,58 @@
+@import "components/application/stylesheets/variables";
+
+.git-hub-file-browser {
+  margin-top: 4rem;
+}
+
+.git-hub-file-browser-breadcrumbs {
+  background: #b2b2b2;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0;
+  padding: 0.5em 1em;
+
+  li {
+    color: $link-color;
+    cursor: pointer;
+    flex: 0 1 auto;
+
+    &:hover {
+      color: $link-hover-color;
+    }
+
+    &:after {
+      color: $gray-base;
+      content: "/\00a0";
+      pointer-events: none;
+    }
+
+    &:last-child {
+      color: $gray-base;
+      pointer-events: none;
+    }
+
+    &:last-child:after {
+      content: none;
+    }
+  }
+}
+
+.git-hub-file-browser-resource {
+  background: transparent none no-repeat 1em center / auto 1.5em;
+  border-bottom: 1px solid rgba(#575756, 0.5);
+  padding: 0.5em 1em 0.5em 3em;
+}
+
+.git-hub-file-browser-file {
+  background-image: url("images/file.svg");
+}
+
+.git-hub-file-browser-dir {
+  background-image: url("images/folder.svg");
+  color: $link-color;
+  cursor: pointer;
+
+  &:hover {
+    color: $link-hover-color;
+  }
+}

@@ -28,6 +28,12 @@ class GitHubApi {
             .then((response) => response.data);
     }
 
+    listRepositoryContents(owner, repository, path) {
+        return this._http
+            .get(this._assembleApiUrl(`repos/${owner}/${repository}/contents/${path}`), this._httpOptions)
+            .then((response) => response.data);
+    }
+
     loadReadme(owner, repository) {
         return this._http
             .get(this._assembleApiUrl(`repos/${owner}/${repository}/readme`), this._httpOptions)

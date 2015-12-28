@@ -7,7 +7,7 @@ class GitHubSearchController {
         this.repositories = [];
         this._preloadDebounce = null;
 
-        this._updateResults().then(() => componentLoader.loadComponent('git-hub-readme'));
+        this._updateResults();
     }
 
     _cancelPreload() {
@@ -40,10 +40,14 @@ class GitHubSearchController {
         this._updateResults();
     }
 
-    showReadme(repo) {
+    showReadme(event, repo) {
+        event.preventDefault();
+
         this._componentLoader
             .resolve('git-hub-readme', 'gitHubReadmeService')
             .then((readMeService) => readMeService.show(repo.owner.login, repo.name));
+
+        return false;
     }
 
     _updateResults() {

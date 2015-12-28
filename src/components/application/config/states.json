@@ -9,6 +9,15 @@
     "name": "app.index",
     "url": "index",
     "type": "load",
-    "src": "components/index-state/index"
+    "src": "components/index-state/index",
+    "prefetch": [
+      "components/git-hub-readme/index"
+    ]
+  },
+  {
+    "name": "app.repository",
+    "url": "repository/:owner/:repo",
+    "type": "load",
+    "src": "components/repository-state/index"
   }
 ]
