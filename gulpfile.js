@@ -117,6 +117,10 @@ gulp.task('bundle', ['build'], function (done) {
                 'angular-ui-bootstrap'
             ]
         }, 'readme'))
+        .then(() => bundler.bundleComponents([
+                'repository-state',
+                'git-hub-file-browser'
+        ], 'file-browser'))
         .then(() => bundler.bundleRemainingComponents())
         .then(() => bundler.bundleRemainingPackages())
         .then(() => bundler.saveConfig())
