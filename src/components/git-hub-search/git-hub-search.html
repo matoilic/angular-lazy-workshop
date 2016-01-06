@@ -23,7 +23,7 @@
                 </p>
 
                 <p>
-                    <a href="#" ng-click="gitHubSearch.showReadme(repo)">README</a>
+                    <a href="#" ng-click="gitHubSearch.showReadme($event, repo)">README</a>
                     <a href="#" ui-sref="app.repository({ owner: repo.owner.login, repo: repo.name })">Repo</a>
                 </p>
             </div>

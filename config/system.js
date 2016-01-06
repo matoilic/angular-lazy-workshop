@@ -232,7 +232,6 @@ System.config({
       "leven": "npm:leven@1.0.2"
     },
     "npm:babel-runtime@5.8.34": {
-      "core-js": "npm:core-js@1.2.6",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:babylon@5.8.34": {
@@ -554,7 +553,6 @@ System.config({
       "wrappy": "npm:wrappy@1.0.1"
     },
     "npm:inherits@2.0.1": {
-      "assert": "github:jspm/nodelibs-assert@0.1.0",
       "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:is-buffer@1.1.0": {
@@ -692,7 +690,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1",
       "isarray": "npm:isarray@0.0.1",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "stream": "github:jspm/nodelibs-stream@0.1.0",
+      "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },
     "npm:recast@0.10.33": {
