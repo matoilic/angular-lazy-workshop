@@ -29,6 +29,7 @@
     }
   },
   "devDependencies": {
+    "angular-lazy": "beta",
     "angular-lazy-bundler": "^0.2.0",
     "babel": "^6.0.0",
     "babel-core": "^6.0.0",
@@ -36,7 +37,8 @@
     "babel-preset-es2015": "^6.0.0",
     "babel-preset-stage-2": "^6.0.0",
     "bootstrap-sass": "^3.3.6",
-    "eslint-config-angular-lazy": "0.1.0",
+    "eslint-config-angular-lazy": "0.2",
+    "generator-angular-lazy": "beta",
     "gulp": "^3.8.11",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-babel": "^6.0.0",
