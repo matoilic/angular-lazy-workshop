@@ -104,41 +104,39 @@ amdefine@>=0.0.4, amdefine@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-angular-animate@^1.6.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.1.tgz#19e3b82b7392e2bbdd83af33c0af0d85437f3a14"
+angular-animate@~1.5.0:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.5.11.tgz#1baa43c303d1b93c4e6aa89453b39114b7a1c669"
 
 "angular-lazy@file:///Users/matoilic/Workspace/Projects/AngularLazy/angular-lazy-0.3.0-beta.0.tgz":
   version "0.3.0-beta.0"
   resolved "///Users/matoilic/Workspace/Projects/AngularLazy/angular-lazy-0.3.0-beta.0.tgz#6ec6c5e9ae2cc908042e3cc1e23e5c614f5b4bda"
 
-angular-mocks@~1.6.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.6.1.tgz#2f44a1b3ac608e93751305bce176c274221d8abd"
+angular-mocks@~1.5.0:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular-mocks/-/angular-mocks-1.5.11.tgz#a0e1dd0ea55fd77ee7a757d75536c5e964c86f81"
 
-angular-sanitize@^1.6.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.6.1.tgz#cacffec3199ed66297afbb1ef366ec66616b3b3f"
+angular-sanitize@~1.5.0:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular-sanitize/-/angular-sanitize-1.5.11.tgz#ebfb3f343e543f9b2ef050fb4c2e9ee048d1772f"
 
-angular-translate@^2.7.2:
-  version "2.13.1"
-  resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.13.1.tgz#05673eb371986fc11edc151f590299d7e0c46228"
-  dependencies:
-    angular ">=1.2.26 <=1.6"
+angular-translate@~2.7.2:
+  version "2.7.2"
+  resolved "https://registry.yarnpkg.com/angular-translate/-/angular-translate-2.7.2.tgz#6ce3a3e07f6f2d4436d8b78f0e324294ab31a167"
 
-angular-ui-bootstrap@^2.4.0:
+angular-ui-bootstrap@~2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/angular-ui-bootstrap/-/angular-ui-bootstrap-2.4.0.tgz#1a46e1bfacedcf50281684a88f5548be01546e7a"
 
-angular-ui-router@^0.4.2:
+angular-ui-router@~0.4.2:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/angular-ui-router/-/angular-ui-router-0.4.2.tgz#b6aed1ca69a683c82e3992898eabd4ba15868608"
   dependencies:
     angular "^1.0.8"
 
-"angular@>=1.2.26 <=1.6", angular@^1.0.8, angular@^1.6.0:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/angular/-/angular-1.6.1.tgz#a7b6d763a74c157325692619e97257e69d9b6a27"
+angular@^1.0.8, angular@~1.5.0:
+  version "1.5.11"
+  resolved "https://registry.yarnpkg.com/angular/-/angular-1.5.11.tgz#8c5ba7386f15965c9acf3429f6881553aada30d6"
 
 ansi-escapes@^1.1.0:
   version "1.4.0"
