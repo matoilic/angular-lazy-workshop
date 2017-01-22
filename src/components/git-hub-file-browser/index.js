@@ -1,7 +1,7 @@
-import './git-hub-file-browser.css!';
+import './git-hub-file-browser.scss';
 import angular from 'angular';
 import 'angular-translate';
-import gitHubApiComponent from 'components/git-hub-api/index';
+import gitHubApiComponent from './../git-hub-api/index';
 import translationsModule from './i18n/translations';
 import GitHubFileBrowserController from './git-hub-file-browser-controller';
 import GitHubFileBrowserService from './git-hub-file-browser-service';

@@ -1,9 +1,23 @@
-const protractorBase = __dirname + '/../node_modules/protractor/';
-const webdriverVersions = require(protractorBase + 'config.json').webdriverVersions;
+require('babel-core/register');
+
+const appConfig = require('./application');
+const path = require('path');
+
+const webdriverPath = path.join(
+    path.dirname(require.resolve('webdriver-manager')),
+    '..',
+    '..'
+);
+
+// eslint-disable-next-line global-require, import/no-dynamic-require
+const webdriverVersions = require(`${webdriverPath}/config.json`).webdriverVersions;
 
 const capabilities = [
     {
-        browserName: 'chrome'
+        browserName: 'chrome',
+        chromeOptions: {
+            args: ['no-sandbox']
+        }
     },
     {
         browserName: 'firefox'
@@ -24,10 +38,13 @@ if (process.platform === 'win32') {
 
 module.exports.config = {
     multiCapabilities: capabilities,
-    seleniumServerJar: protractorBase + 'selenium/selenium-server-standalone-' + webdriverVersions.selenium + '.jar',
-    baseUrl: 'http://localhost:8089/index.html?noAnimate=1#',
+    seleniumServerJar: `${webdriverPath}/selenium/selenium-server-standalone-${webdriverVersions.selenium}.jar`,
+    baseUrl: `${appConfig.server.protocol}://${appConfig.server.host}:${appConfig.server.port}/#`,
     rootElement: '#applicationContainer',
     framework: 'jasmine2',
-    specs: ['../build/**/*-test.js'],
-    maxSessions: 1
+    specs: [appConfig.paths.e2eTests],
+    maxSessions: 1,
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 360000
+    }
 };

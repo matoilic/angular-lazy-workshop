@@ -1,8 +1,8 @@
-import './git-hub-search.css!';
+import './git-hub-search.scss';
 import angular from 'angular';
 import 'angular-translate';
 import ngLazy from 'angular-lazy';
-import gitHubApiComponent from 'components/git-hub-api/index';
+import gitHubApiComponent from './../git-hub-api/index';
 import translationsModule from './i18n/translations';
 import GitHubSearchController from './git-hub-search-controller';
 import GitHubSearchService from './git-hub-search-service';

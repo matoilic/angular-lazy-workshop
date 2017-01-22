@@ -1,8 +1,8 @@
-import './index-state.css!';
+import './index-state.scss';
 import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-translate';
-import ghSearchComponent from 'components/git-hub-search/index';
+import ghSearchComponent from './../git-hub-search/index';
 import translationsModule from './i18n/translations';
 import IndexStateController from './index-state-controller';
 import indexRouteConfig from './index-route';

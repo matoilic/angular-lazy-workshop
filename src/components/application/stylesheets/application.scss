@@ -1,13 +1,13 @@
 @import "variables";
-@import "bootstrap/mixins";
-@import "bootstrap/normalize";
-@import "bootstrap/scaffolding";
-@import "bootstrap/type";
-@import "bootstrap/grid";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
-@import "bootstrap/modals";
-@import "bootstrap/tables";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
 
 body {
   font-family: Roboto, sans-serif;

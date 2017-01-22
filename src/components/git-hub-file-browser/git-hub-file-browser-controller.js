@@ -3,7 +3,9 @@ class GitHubFileBrowserController {
         this._browserService = gitHubFileBrowserService;
         this._breadcrumbs = [];
         this.contents = [];
+    }
 
+    $onInit() {
         if (!this.path) {
             this.path = '';
         }

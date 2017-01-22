@@ -1,4 +1,4 @@
-import template from './index-state.html!text';
+import template from './index-state.html';
 
 function indexRouteConfig($stateProvider) {
     $stateProvider

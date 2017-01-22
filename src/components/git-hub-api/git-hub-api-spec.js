@@ -1,11 +1,11 @@
 import angular from 'angular';
 import 'angular-mocks';
 import component from './index';
-import constants from './constants.json!';
-import repositoriesList from './test-data/repositories.json!';
-import searchRepositoriesList from './test-data/search-repositories.json!';
-import readme from './test-data/readme.json!';
-import renderedReadme from './test-data/rendered-readme.html!text';
+import constants from './constants.json';
+import repositoriesList from './test-data/repositories.json';
+import searchRepositoriesList from './test-data/search-repositories.json';
+import readme from './test-data/readme.json';
+import renderedReadme from './test-data/rendered-readme.html';
 
 describe('Git Hub API', () => {
     const apiUrl = constants.gitHubApiUrl;

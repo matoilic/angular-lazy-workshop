@@ -1,4 +1,4 @@
-import template from './git-hub-file-browser.html!text';
+import template from './git-hub-file-browser.html';
 
 function gitHubFileBrowserDirective() {
     return {

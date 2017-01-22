@@ -1,4 +1,4 @@
-import template from './repository-state.html!text';
+import template from './repository-state.html';
 
 function repositoryRouteConfig($stateProvider) {
     $stateProvider

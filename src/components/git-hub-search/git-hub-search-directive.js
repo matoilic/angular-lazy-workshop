@@ -1,4 +1,4 @@
-import template from './git-hub-search.html!text';
+import template from './git-hub-search.html';
 
 function gitHubSearchDirective() {
     return {

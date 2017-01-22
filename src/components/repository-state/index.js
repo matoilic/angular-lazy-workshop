@@ -1,8 +1,8 @@
-import './repository-state.css!';
+import './repository-state.scss';
 import angular from 'angular';
 import 'angular-ui-router';
 import 'angular-translate';
-import fileBrowserComponent from 'components/git-hub-file-browser/index';
+import fileBrowserComponent from './../git-hub-file-browser/index';
 import translationsModule from './i18n/translations';
 import RepositoryStateController from './repository-state-controller';
 import repositoryRouteConfig from './repository-route';

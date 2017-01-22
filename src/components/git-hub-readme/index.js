@@ -1,10 +1,10 @@
-import './git-hub-readme.css!';
+import './git-hub-readme.scss';
 import angular from 'angular';
 import 'angular-translate';
 import 'angular-sanitize';
 import 'angular-animate';
 import uiBootstrap from 'angular-ui-bootstrap';
-import gitHubApiComponent from 'components/git-hub-api/index';
+import gitHubApiComponent from './../git-hub-api/index';
 import translationsModule from './i18n/translations';
 import GitHubReadmeController from './git-hub-readme-controller';
 import GitHubReadmeService from './git-hub-readme-service';

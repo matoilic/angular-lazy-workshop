@@ -1,7 +1,11 @@
+const appConfig = require('./application');
+const path = require('path');
+const webpackConfig = require('./webpack-test');
+
 const browsers = ['Chrome', 'Firefox'];
 
 if (process.platform === 'win32') {
-    browsers.push('IE');
+    browsers.push('IE', 'Edge');
 } else if (process.platform === 'darwin') {
     browsers.push('Safari');
 }
@@ -9,37 +13,16 @@ if (process.platform === 'win32') {
 module.exports = function (config) {
     config.set({
         // base path that will be used to resolve all patterns (eg. files, exclude)
-        basePath: __dirname + '/../',
+        basePath: `${__dirname}/../`,
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jspm', 'jasmine'],
+        frameworks: ['jasmine', 'source-map-support'],
 
         // list of files / patterns to load in the browser
-        files: [],
-
-        jspm: {
-            baseURL: '/base',
-            config: 'config/system.js',
-            loadFiles: [
-                'build/**/*-spec.js'
-            ],
-            serveFiles: [
-                'build/**/!(*-spec).js',
-                'build/**/*.css',
-                'build/**/*.json',
-                'build/**/*.html',
-                'build/**/*.map',
-                'jspm_packages/**/*.js',
-                'jspm_packages/**/*.css'
-            ]
-        },
-
-        proxies: {
-            '/base/components/': '/base/build/components/',
-            '/base/build/build/': '/base/build/'
-        },
-
+        files: [
+            appConfig.paths.appTestIndexJs
+        ],
 
         // list of files to exclude
         exclude: [],
@@ -47,13 +30,13 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            'build/**/!(*-spec).js': ['coverage']
+            [appConfig.paths.appTestIndexJs]: ['coverage', 'webpack', 'sourcemap']
         },
 
         // test results reporter to use
         // possible values: 'dots', 'progress'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['progress', 'coverage'],
+        reporters: ['spec', 'coverage', 'remap-coverage'],
 
         // web server port
         port: 9876,
@@ -62,7 +45,7 @@ module.exports = function (config) {
         colors: true,
 
         // level of logging
-        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        // config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
         logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
@@ -70,15 +53,26 @@ module.exports = function (config) {
 
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-        browsers: browsers,
+        browsers,
 
         // Continuous Integration mode
         // if true, Karma captures browsers, runs the tests and exits
-        singleRun: false,
+        singleRun: true,
 
         coverageReporter: {
-            type: 'html',
-            dir: __dirname + '/../test-coverage'
+            type: 'in-memory'
+        },
+
+        remapCoverageReporter: {
+            'text-summary': null,
+            json: path.join(appConfig.paths.appBuild, 'reports/coverage/coverage.json'),
+            html: path.join(appConfig.paths.appBuild, 'reports/coverage/html')
+        },
+
+        webpack: webpackConfig,
+
+        webpackMiddleware: {
+            stats: 'errors-only'
         }
     });
 };

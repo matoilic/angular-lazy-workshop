@@ -1,4 +1,4 @@
-import template from './git-hub-readme.html!text';
+import template from './git-hub-readme.html';
 
 function gitHubReadmeDirective() {
     return {

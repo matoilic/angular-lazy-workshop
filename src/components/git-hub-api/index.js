@@ -1,5 +1,5 @@
 import angular from 'angular';
-import constants from './constants.json!';
+import constants from './constants.json';
 import gitHubApiProvider from './git-hub-api-provider';
 
 const dependencies = [

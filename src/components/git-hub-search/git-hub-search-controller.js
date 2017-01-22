@@ -22,7 +22,7 @@ class GitHubSearchController {
 
         this._preloadDebounce = this._timeout(() => {
             this._componentLoader
-                .resolve('git-hub-readme', 'gitHubReadmeService')
+                .resolve(System.import('../git-hub-readme/index'), 'gitHubReadmeService')
                 .then((readMeService) => readMeService.render(repo.owner.login, repo.name));
         }, 500);
     }
@@ -44,7 +44,7 @@ class GitHubSearchController {
         event.preventDefault();
 
         this._componentLoader
-            .resolve('git-hub-readme', 'gitHubReadmeService')
+            .resolve(System.import('../git-hub-readme/index'), 'gitHubReadmeService')
             .then((readMeService) => readMeService.show(repo.owner.login, repo.name));
 
         return false;
